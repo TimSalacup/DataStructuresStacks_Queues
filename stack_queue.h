@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+// STATIC STACK (STEPHANIE RAIDEN GRIARTE)
 const int MAX_SIZE = 5;
 
 class StaticStack {
@@ -21,6 +22,25 @@ public:
     bool isEmpty();
 };
 
+// STATIC QUEUE (XHEAWN CRISTOBAL)
+const int MAX_SIZE2 = 20;
+
+class staticQueue {
+private:
+    int arr[MAX_SIZE2];
+    int front;
+    int rear;
+    int count;
+public:
+    staticQueue();
+    void enqueue(int value);
+    void dequeue();
+    void display();
+    bool isFull();
+    bool isEmpty();
+};
+
+// DYNAMIC QUEUE (TIMOTHY BERNARDO SALACUP)
 class DynIntQueue {
     private:
     struct QueueNode{

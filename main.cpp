@@ -9,6 +9,7 @@ void staticQueueMenu();
 void dynamicQueueMenu();
 DynIntQueue dynamicQueue;
 StaticStack staticStack;
+staticQueue StaticQueue;
 
 int main() {
     int mainChoice;
@@ -112,7 +113,7 @@ void dynamicStackMenu() {
 
 // Queue Menus
 void staticQueueMenu() {
-    int choice;
+    int choice, value;
     do {
         cout << "\n--- Static Queue Menu ---\n";
         cout << "1. Enqueue\n";
@@ -124,13 +125,16 @@ void staticQueueMenu() {
 
         switch (choice) {
             case 1:
-                // Add logic for static queue enqueue
+                cout << "Enter value to enqueue (int only): ";
+                cin >> value;
+                StaticQueue.enqueue(value);
                 break;
             case 2:
-                // Add logic for static queue dequeue
+                StaticQueue.dequeue();
+                cout << "Dequeued: " << value << endl;
                 break;
             case 3:
-                // Add logic for static queue display
+                StaticQueue.display();
                 break;
             case 4:
                 cout << "Returning to Main Menu...\n";

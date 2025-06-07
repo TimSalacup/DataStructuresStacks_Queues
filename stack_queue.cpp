@@ -129,3 +129,54 @@ bool StaticStack::isFull() {
 bool StaticStack::isEmpty() {
     return top == -1;
 }
+
+// STATIC QUEUE (XHEAWN CRISTOBAL)
+
+staticQueue::staticQueue() {
+    front = 0;
+    rear = -1;
+    count = 0;
+}
+
+bool staticQueue::isFull() {
+    return count == MAX_SIZE2;
+}
+
+bool staticQueue::isEmpty() {
+    return count == 0;
+}
+
+void staticQueue::enqueue(int value) {
+    if (isFull()) {
+        cout << "Queue full.\n";
+        return;
+    }
+    rear = (rear + 1) % MAX_SIZE2;
+    arr[rear] = value;
+    count++;
+    cout << "Enqueued: " << value << endl;
+}
+
+void staticQueue::dequeue() {
+    if (isEmpty()) {
+        cout << "Queue empty.\n";
+        return;
+    }
+    cout << "Dequeued: " << arr[front] << endl;
+    front = (front + 1) % MAX_SIZE2;
+    count--;
+}
+
+void staticQueue::display() {
+    if (isEmpty()) {
+        cout << "Queue empty.\n";
+        return;
+    }
+    cout << "Queue contents: ";
+    for (int i = 0; i < count; i++) {
+        int index = (front + i) % MAX_SIZE2;
+        cout << arr[index] << " ";
+    }
+    cout << endl;
+}
+
