@@ -4,6 +4,23 @@
 #include <iostream>
 using namespace std;
 
+const int MAX_SIZE = 5;
+
+class StaticStack {
+private:
+    int stack[MAX_SIZE];
+    int top;
+
+public:
+    StaticStack();
+    ~StaticStack();
+    void push(int value);
+    int pop();
+    void display();
+    bool isFull();
+    bool isEmpty();
+};
+
 class DynIntQueue {
     private:
     struct QueueNode{

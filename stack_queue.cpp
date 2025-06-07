@@ -2,6 +2,7 @@
 #include "stack_queue.h"
 using namespace std;
 
+// DYNAMIC QUEUE (TIMOTHY BERNARDO SALACUP)
 DynIntQueue::DynIntQueue()
 {
     front = NULL;
@@ -74,4 +75,57 @@ void DynIntQueue::displayQueue()
         nodePtr = nodePtr->next;
     }
     cout << endl;
+}
+
+// STATIC STACK (STEPHANIE RAIDEN GRIARTE)
+
+StaticStack::StaticStack() {
+    top = -1;
+}
+
+StaticStack::~StaticStack(){
+    cout << "Stack destroyed" << endl;
+}
+
+void StaticStack::push(int value) {
+    if (isFull()) {
+        cout << "Stack Overflow. Cannot push " << value << endl;
+        return;
+    }
+    stack[++top] = value;
+    cout << value << " pushed to stack." << endl;
+}
+
+
+int StaticStack::pop() {
+    if (isEmpty()) {
+        cout << "Stack Underflow!" << endl;
+        return -1;
+    }
+    int value = stack[top--];
+    cout << value << " popped from stack." << endl;
+    return value;
+}
+
+
+void StaticStack::display() {
+    if (isEmpty()) {
+        cout << "Stack is empty." << endl;
+        return;
+    }
+    cout << "Stack contents: ";
+    for (int i = top; i >= 0; i--) {
+        cout << stack[i] << " ";
+    }
+    cout << endl;
+}
+
+
+bool StaticStack::isFull() {
+    return top == MAX_SIZE - 1;
+}
+
+
+bool StaticStack::isEmpty() {
+    return top == -1;
 }
