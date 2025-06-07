@@ -8,6 +8,7 @@ void dynamicStackMenu();
 void staticQueueMenu();
 void dynamicQueueMenu();
 DynIntQueue dynamicQueue;
+DynamicStack dynamicStack;
 StaticStack staticStack;
 staticQueue StaticQueue;
 
@@ -64,7 +65,7 @@ void staticStackMenu() {
             case 1:
                 cout << "Enter value to push (int only): ";
                 cin >> value;
-                dynamicQueue.enqueue(value);
+                staticStack.push(value);
                 break;
             case 2:
                 staticStack.pop();
@@ -82,7 +83,7 @@ void staticStackMenu() {
 }
 
 void dynamicStackMenu() {
-    int choice;
+    int choice, value;
     do {
         cout << "\n--- Dynamic Stack Menu ---\n";
         cout << "1. Push\n";
@@ -94,13 +95,15 @@ void dynamicStackMenu() {
 
         switch (choice) {
             case 1:
-                // Add logic for dynamic stack push
+                cout << "Enter value to push (int only): ";
+                cin >> value;
+                dynamicStack.push(value);
                 break;
             case 2:
-                // Add logic for dynamic stack pop
+                dynamicStack.pop();
                 break;
             case 3:
-                // Add logic for dynamic stack display
+                dynamicStack.display();
                 break;
             case 4:
                 cout << "Returning to Main Menu...\n";

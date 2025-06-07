@@ -180,3 +180,51 @@ void staticQueue::display() {
     cout << endl;
 }
 
+// DYNAMIC STACK (YDAN CEDRIC MARTIN)
+DynamicStack::DynamicStack() {
+    top = nullptr;
+}
+
+DynamicStack::~DynamicStack() {
+    while (!isEmpty()) {
+        pop();
+    }
+}
+
+void DynamicStack::push(int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = top;
+    top = newNode;
+    std::cout << value << " pushed onto the stack.\n";
+}
+
+void DynamicStack::pop() {
+    if (isEmpty()) {
+        std::cout << "Stack is empty. Cannot pop.\n";
+        return;
+    }
+    Node* temp = top;
+    top = top->next;
+    std::cout << "Popped: " << temp->data << "\n";
+    delete temp;
+}
+
+void DynamicStack::display() {
+    if (isEmpty()) {
+        std::cout << "Stack is empty.\n";
+        return;
+    }
+    Node* current = top;
+    std::cout << "Stack contents:\n";
+    while (current != nullptr) {
+        std::cout << current->data << " ";
+        current = current->next;
+    }
+    std::cout << "\n";
+}
+
+bool DynamicStack::isEmpty() {
+    return top == nullptr;
+}
+

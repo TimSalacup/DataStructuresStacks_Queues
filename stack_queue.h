@@ -7,7 +7,8 @@ using namespace std;
 // STATIC STACK (STEPHANIE RAIDEN GRIARTE)
 const int MAX_SIZE = 5;
 
-class StaticStack {
+class StaticStack
+{
 private:
     int stack[MAX_SIZE];
     int top;
@@ -25,12 +26,14 @@ public:
 // STATIC QUEUE (XHEAWN CRISTOBAL)
 const int MAX_SIZE2 = 20;
 
-class staticQueue {
+class staticQueue
+{
 private:
     int arr[MAX_SIZE2];
     int front;
     int rear;
     int count;
+
 public:
     staticQueue();
     void enqueue(int value);
@@ -41,15 +44,17 @@ public:
 };
 
 // DYNAMIC QUEUE (TIMOTHY BERNARDO SALACUP)
-class DynIntQueue {
-    private:
-    struct QueueNode{
+class DynIntQueue
+{
+private:
+    struct QueueNode
+    {
         float value;
-        struct QueueNode* next;
+        struct QueueNode *next;
     };
 
-    QueueNode* front;
-    QueueNode* rear;
+    QueueNode *front;
+    QueueNode *rear;
     int numItems;
 
 public:
@@ -59,6 +64,28 @@ public:
     void dequeue(int &value);
     void displayQueue();
     void clear();
+    bool isEmpty();
+};
+
+// DYNAMIC STACK (YDAN CEDRIC MARTIN)
+
+class DynamicStack
+{
+private:
+    struct Node
+    {
+        int data;
+        Node *next;
+    };
+    Node *top;
+
+public:
+    DynamicStack();
+    ~DynamicStack();
+
+    void push(int value);
+    void pop();
+    void display();
     bool isEmpty();
 };
 
