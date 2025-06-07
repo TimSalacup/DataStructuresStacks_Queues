@@ -1,4 +1,5 @@
 #include <iostream>
+#include "stack_queue.h"
 using namespace std;
 
 // Function declarations
@@ -6,6 +7,8 @@ void staticStackMenu();
 void dynamicStackMenu();
 void staticQueueMenu();
 void dynamicQueueMenu();
+DynIntQueue dynamicQueue;
+
 
 int main() {
     int mainChoice;
@@ -137,7 +140,7 @@ void staticQueueMenu() {
 }
 
 void dynamicQueueMenu() {
-    int choice;
+    int choice, value;
     do {
         cout << "\n--- Dynamic Queue Menu ---\n";
         cout << "1. Enqueue\n";
@@ -149,13 +152,16 @@ void dynamicQueueMenu() {
 
         switch (choice) {
             case 1:
-                // Add logic for dynamic queue enqueue
+                cout << "Enter value to enqueue (int only): ";
+                cin >> value;
+                dynamicQueue.enqueue(value);
                 break;
             case 2:
-                // Add logic for dynamic queue dequeue
+                dynamicQueue.dequeue(value);
+                cout << "Dequeued: " << value << endl;
                 break;
             case 3:
-                // Add logic for dynamic queue display
+                dynamicQueue.displayQueue();
                 break;
             case 4:
                 cout << "Returning to Main Menu...\n";
